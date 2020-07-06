@@ -5,11 +5,23 @@
 void ParserParams::parseInput(const IReader& input, char delimiter)
 {
     std::string dataInput = input.read();
-    size_t sizeVector = m_params.size();
     size_t i = 0;
     size_t indexDelimiter;
 
-    while(i < sizeVector && !dataInput.empty())
+    if(dataInput.empty())
+    {
+        if(i < m_size)
+        {
+            m_params[0] = "";
+        }
+
+        else
+        {
+            m_params.push_back("");
+        }
+    }
+
+    while(i < m_size && !dataInput.empty())
     {
         indexDelimiter = dataInput.find(delimiter);
         m_params[i] = dataInput.substr(0, indexDelimiter);
@@ -22,6 +34,7 @@ void ParserParams::parseInput(const IReader& input, char delimiter)
         indexDelimiter = dataInput.find(delimiter);
         m_params.push_back(dataInput.substr(0, indexDelimiter));
         dataInput.erase(0, indexDelimiter + 2);
+        ++m_size;
     }
 }
 
