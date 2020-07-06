@@ -18,14 +18,14 @@ void SystemManager::start()
         userInput.initInputFromKeyboard();
         params.parseInput(userInput);
 
-        if("quit" == params[0])
-        {
-            break;
-        }
-
         pCommand = CommandFactory::getCommand(params);
         pCommand->execute();
 
         delete pCommand;
+
+        if("quit" == params[0])
+        {
+            break;
+        }
     }
 }
