@@ -4,6 +4,6 @@
 
 void KeyboardReader::initInputFromKeyboard()
 {
-    std::cin >> m_data;
+    getline(std::cin, m_data);
 }
 
