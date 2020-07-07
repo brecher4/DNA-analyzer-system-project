@@ -16,7 +16,7 @@ public:
 
     void parseInput(const IReader& input, char delimiter = ' ');
     const std::string& operator[](size_t index)const;
-    size_t getSize()const{ return m_size;}
+    size_t getSize()const{ return m_size; }
 
 private:
     std::vector<std::string> m_params;
