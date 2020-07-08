@@ -5,7 +5,7 @@
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
 {
-    if(0 == params.getSize() || params[0].empty())
+    if(params[0].empty())
     {
         throw std::invalid_argument("MISSING COMMAND");
     }
