@@ -5,12 +5,16 @@
 #include "creation_command.h"
 
 
+class DNAMetaData;
+
+
 class NewCommand: public CreationCommand
 {
 public:
     NewCommand(const ParserParams& params);
 
     void execute()const;
+    void write(DNAMetaData* pDNAMetaData)const;
 
 private:
     bool isValidParams();
