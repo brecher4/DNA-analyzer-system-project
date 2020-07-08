@@ -11,8 +11,10 @@ class FileReader:public Reader
 public:
     FileReader(const std::string& fileName);
 
+    /* virtual */ void initInput();
+
 private:
-    static std::string readFromFile(const std::string& fileName);
+    std::string m_fileName;
 };
 
 

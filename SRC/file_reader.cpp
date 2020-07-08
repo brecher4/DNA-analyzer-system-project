@@ -2,21 +2,17 @@
 #include "file_reader.h"
 
 
-FileReader::FileReader(const std::string& fileName)
-{
-    m_data = readFromFile(fileName);
-}
+FileReader::FileReader(const std::string& fileName):m_fileName(fileName){}
 
 
-std::string FileReader::readFromFile(const std::string& fileName)
+void FileReader::initInput()
 {
-    std::string data;
     std::ifstream myFile;
-    myFile.open(fileName.c_str());
+    myFile.open(m_fileName.c_str());
 
     if(myFile.is_open())
     {
-        getline(myFile, data);
+        getline(myFile, m_data);
         myFile.close();
     }
 
@@ -24,6 +20,4 @@ std::string FileReader::readFromFile(const std::string& fileName)
     {
         throw std::runtime_error("UNABLE TO OPEN THE FILE :(");
     }
-
-    return data;
 }
