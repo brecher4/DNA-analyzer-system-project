@@ -26,19 +26,7 @@ std::string DNAMetaData::getDNADataAsStr()
     std::stringstream data;
     size_t lengthDNA = m_DNASequence.length();
 
-    data << "[" << m_id << "] " << m_name << ": ";
-
-    if(lengthDNA > 40)
-    {
-        data << m_DNASequence.slice(0,33) << "..." << m_DNASequence.slice(lengthDNA - 3, lengthDNA);
-    }
-
-    else
-    {
-        data << m_DNASequence;
-    }
-
-    data << "\n";
+    data << "[" << m_id << "] " << m_name << ": " << m_DNASequence << "\n";
 
     return data.str();
 }
