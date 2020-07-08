@@ -11,6 +11,7 @@ public:
     virtual ~IReader(){}
 
     virtual std::string read()const = 0;
+    virtual void initInput() = 0;
 };
 
 
