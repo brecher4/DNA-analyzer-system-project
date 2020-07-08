@@ -1,31 +1,8 @@
 #include "system_manager.h"
-#include "keyboard_reader.h"
-#include "parser_params.h"
-#include "i_command.h"
-#include "command_factory.h"
-#include <iostream>
+#include "terminal.h"
 
 
-void SystemManager::start()
+void SystemManager::start(IReader* input, IWriter* output)
 {
-    KeyboardReader userInput;
-    ParserParams params;
-    const ICommand* pCommand;
-
-    while(1)
-    {
-        std::cout << "cmd >>> ";
-        userInput.initInputFromKeyboard();
-        params.parseInput(userInput);
-
-        if("quit" == params[0])
-        {
-            break;
-        }
-
-        pCommand = CommandFactory::getCommand(params);
-        pCommand->execute();
-
-        delete pCommand;
-    }
+    Terminal::start(input, output, &m_dbDNASequence);
 }

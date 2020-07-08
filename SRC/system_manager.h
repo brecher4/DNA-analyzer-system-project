@@ -2,10 +2,20 @@
 #define SRC_SYSTEM_MANAGER_H
 
 
+#include "db_dna_sequences.h"
+
+
+class IReader;
+class IWriter;
+
+
 class SystemManager
 {
 public:
-    static void start();
+    void start(IReader* input, IWriter* output);
+
+private:
+   DBDNASequence m_dbDNASequence;
 };
 
 
