@@ -2,6 +2,8 @@
 #define SRC_I_COMMAND_H
 
 
+class IWriter;
+class DBDNASequence;
 class ParserParams;
 
 
@@ -11,7 +13,7 @@ public:
     ICommand(const ParserParams& params):m_pParams(&params){}
     virtual ~ICommand(){}
 
-    virtual void execute()const = 0;
+    virtual void execute(IWriter* output, DBDNASequence* database)const = 0;
 
 protected:
     const ParserParams* m_pParams;
