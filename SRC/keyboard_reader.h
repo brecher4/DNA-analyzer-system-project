@@ -9,7 +9,7 @@
 class KeyboardReader:public Reader
 {
 public:
-    void initInputFromKeyboard();
+    /* virtual */ void initInput();
 };
 
 
