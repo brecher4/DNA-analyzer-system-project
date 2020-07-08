@@ -12,11 +12,11 @@ class DNAMetaData;
 class DBDNASequence
 {
 public:
-    static void addNewDNA(DNAMetaData* dnaMetaData);
+    void addNewDNA(DNAMetaData* dnaMetaData);
 
 private:
-    static std::map<size_t, DNAMetaData*> m_hashTableById;
-    static std::map<std::string, size_t> m_hashTableByName;
+    std::map<size_t, DNAMetaData*> m_hashTableById;
+    std::map<std::string, size_t> m_hashTableByName;
 };
 
 
