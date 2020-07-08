@@ -9,32 +9,32 @@ void ParserParams::parseInput(const IReader& input, char delimiter)
     size_t i = 0;
     size_t indexDelimiter;
 
-    if(dataInput.empty())
+    while(i < sizeVector && (indexDelimiter = dataInput.find(delimiter)) != std::string::npos)
+    {
+        m_params[i] = dataInput.substr(0, indexDelimiter);
+        dataInput.erase(0, indexDelimiter + 1);
+        ++i;
+    }
+
+    while((indexDelimiter = dataInput.find(delimiter)) != std::string::npos)
+    {
+        m_params.push_back(dataInput.substr(0, indexDelimiter));
+        dataInput.erase(0, indexDelimiter + 1);
+        ++i;
+    }
+
+    if(!dataInput.empty())
     {
         if(i < sizeVector)
         {
-            m_params[0] = "";
+            m_params[i] = dataInput.substr(0);
         }
 
         else
         {
-            m_params.push_back("");
+            m_params.push_back(dataInput.substr(0));
         }
-    }
 
-    while(i < sizeVector && !dataInput.empty())
-    {
-        indexDelimiter = dataInput.find(delimiter);
-        m_params[i] = dataInput.substr(0, indexDelimiter);
-        dataInput.erase(0, indexDelimiter + 2);
-        ++i;
-    }
-
-    while(!dataInput.empty())
-    {
-        indexDelimiter = dataInput.find(delimiter);
-        m_params.push_back(dataInput.substr(0, indexDelimiter));
-        dataInput.erase(0, indexDelimiter + 2);
         ++i;
     }
 
