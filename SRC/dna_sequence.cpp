@@ -310,7 +310,7 @@ bool operator!=(const DNASequence& dnaSequence1, const DNASequence& dnaSequence2
 
 std::ostream& operator<<(std::ostream& out, const DNASequence& dnaSequence)
 {
-    out << "DnaSequence: " << dnaSequence.getDnaSequenceAsStr();
+    out << dnaSequence.getDnaSequenceAsStr();
 
     return out;
 }
