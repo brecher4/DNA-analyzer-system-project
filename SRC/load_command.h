@@ -13,8 +13,7 @@ class LoadCommand: public CreationCommand
 public:
     LoadCommand(const ParserParams& params);
 
-    void execute()const;
-    void write(DNAMetaData* pDNAMetaData)const;
+    /* virtual */ void execute(IWriter* output, DBDNASequence* database)const;
 
 private:
     bool isValidParams();

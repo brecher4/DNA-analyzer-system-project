@@ -15,34 +15,27 @@ NewCommand::NewCommand(const ParserParams& params):CreationCommand(params)
 }
 
 
-void NewCommand::execute()const
+void NewCommand::execute(IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNAMetaData;
 
     if(3 == (*m_pParams).getSize())
     {
         pDNAMetaData = new DNAMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1));
-        DBDNASequence::addNewDNA(pDNAMetaData);
+        database->addNewDNA(pDNAMetaData);
     }
 
     else
     {
         pDNAMetaData = new DNAMetaData((*m_pParams)[1]);
-        DBDNASequence::addNewDNA(pDNAMetaData);
+        database->addNewDNA(pDNAMetaData);
     }
 
-    write(pDNAMetaData);
+    output->write(pDNAMetaData->getDNADataAsStr().c_str());
 }
 
 
 bool NewCommand::isValidParams()
 {
     return 2 == (*m_pParams).getSize() || (3 == (*m_pParams).getSize() && '@' == (*m_pParams)[2][0]);
-}
-
-
-void NewCommand::write(DNAMetaData* pDNAMetaData)const
-{
-    ScreenWriter output;
-    output.write(pDNAMetaData->getDNADataAsStr().c_str());
 }
