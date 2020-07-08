@@ -2,6 +2,7 @@
 #define SRC_LOAD_COMMAND_H
 
 
+#include <string>
 #include "creation_command.h"
 
 
@@ -17,6 +18,8 @@ public:
 
 private:
     bool isValidParams();
+
+    static std::string getDNADataAsStr(const DNAMetaData* pDNAMetaData);
 };
 
 

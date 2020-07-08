@@ -5,6 +5,7 @@
 #include "db_dna_sequences.h"
 #include "file_reader.h"
 #include <stdexcept>
+#include <sstream>
 
 
 LoadCommand::LoadCommand(const ParserParams& params):CreationCommand(params)
@@ -34,13 +35,36 @@ void LoadCommand::execute(IWriter* output, DBDNASequence* database)const
         database->addNewDNA(pDNAMetaData);
     }
 
-    output->write(pDNAMetaData->getDNADataAsStr().c_str());
+    output->write(getDNADataAsStr(pDNAMetaData).c_str());
 }
 
 
 bool LoadCommand::isValidParams()
 {
     return 2 == (*m_pParams).getSize() || (3 == (*m_pParams).getSize() && '@' == (*m_pParams)[2][0]);
+}
+
+
+std::string LoadCommand::getDNADataAsStr(const DNAMetaData *pDNAMetaData)
+{
+    std::stringstream data;
+    size_t lengthDNA = pDNAMetaData->getDNASequence().length();
+
+    data << "[" << pDNAMetaData->getId() << "] " << pDNAMetaData->getName() << ": ";
+
+    if(lengthDNA > 40)
+    {
+        data << pDNAMetaData->getDNASequence().slice(0,33) << "..." << pDNAMetaData->getDNASequence().slice(lengthDNA - 3, lengthDNA);
+    }
+
+    else
+    {
+        data << pDNAMetaData->getDNASequence();
+    }
+
+    data << "\n";
+
+    return data.str();
 }
 
 
