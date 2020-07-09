@@ -9,22 +9,38 @@
 void Terminal::start(IReader* input, IWriter* output, DBDNASequence* database)
 {
     ParserParams params;
-    const ICommand* pCommand;
+    const ICommand* pCommand = NULL;
 
     while(1)
     {
-        std::cout << "> cmd >>> ";
-        input->initInput();
-        params.parseInput(*input);
-
-        if("quit" == params[0])
+        try
         {
-            break;
+            std::cout << "> cmd >>> ";
+            input->initInput();
+            params.parseInput(*input);
+
+            if("quit" == params[0])
+            {
+                break;
+            }
+
+            pCommand = CommandFactory::getCommand(params);
+            pCommand->execute(output, database);
+
+            delete pCommand;
+            pCommand = NULL;
         }
 
-        pCommand = CommandFactory::getCommand(params);
-        pCommand->execute(output, database);
+        catch (std::invalid_argument& e)
+        {
+            std::cout << e.what() << "\n\n";
+            delete pCommand;
+        }
 
-        delete pCommand;
+        catch (std::out_of_range& e)
+        {
+            std::cout << e.what() << "\n\n";
+            delete pCommand;
+        }
     }
 }
