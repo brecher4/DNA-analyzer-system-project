@@ -38,7 +38,7 @@ void LoadCommand::execute(IWriter* output, DBDNASequence* database)const
     pDNAMetaData = new DNAMetaData(file.read(),nameDNA);
     database->addNewDNA(pDNAMetaData);
 
-    output->write(pDNAMetaData->getDNADataAsStr().c_str());
+    output->write(getDNADataAsStr(pDNAMetaData).c_str());
 }
 
 
