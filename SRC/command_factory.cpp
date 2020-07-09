@@ -3,6 +3,7 @@
 #include "new_command.h"
 #include "load_command.h"
 #include "save_command.h"
+#include "dup_command.h"
 
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
@@ -25,6 +26,11 @@ const ICommand* CommandFactory::getCommand(const ParserParams& params)
     if("save" == params[0])
     {
         return new SaveCommand(params);
+    }
+
+    if("dup" == params[0])
+    {
+        return new DupCommand(params);
     }
 
     throw std::invalid_argument("COMMAND NOT FOUND");
