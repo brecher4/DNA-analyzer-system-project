@@ -35,9 +35,7 @@ void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
 
     if(m_pParams->getSize() == 2)
     {
-        std::stringstream out;
-        out << (*m_pParams)[1].substr(1) << ".rawdna";
-        FileWriter file(out.str());
+        FileWriter file(pDNA->getName() + ".rawdna");
         file.write(pDNA->getDNADataAsStr().c_str());
     }
 
