@@ -20,22 +20,25 @@ LoadCommand::LoadCommand(const ParserParams& params): CreationCommands(params)
 void LoadCommand::execute(IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNAMetaData;
-    FileReader file((*m_pParams)[1]);
-    file.initInput();
+    std::string nameDNA;
 
     if(3 == (*m_pParams).getSize())
     {
-        pDNAMetaData = new DNAMetaData(file.read(),(*m_pParams)[2].substr(1));
-        database->addNewDNA(pDNAMetaData);
+        nameDNA = ICommand::getValidDNAName((*m_pParams)[2].substr(1), database);
     }
 
     else
     {
-        pDNAMetaData = new DNAMetaData(file.read(), (*m_pParams)[1].substr(0, (*m_pParams)[1].find('.')));
-        database->addNewDNA(pDNAMetaData);
+        nameDNA = ICommand::getValidDNAName((*m_pParams)[1].substr(0, (*m_pParams)[1].find('.')), database);
     }
 
-    output->write(getDNADataAsStr(pDNAMetaData).c_str());
+    FileReader file((*m_pParams)[1]);
+    file.initInput();
+
+    pDNAMetaData = new DNAMetaData(file.read(),nameDNA);
+    database->addNewDNA(pDNAMetaData);
+
+    output->write(pDNAMetaData->getDNADataAsStr().c_str());
 }
 
 
