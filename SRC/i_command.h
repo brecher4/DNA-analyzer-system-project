@@ -2,6 +2,8 @@
 #define SRC_I_COMMAND_H
 
 
+#include <string>
+
 class IWriter;
 class DBDNASequence;
 class ParserParams;
@@ -16,6 +18,8 @@ public:
     virtual void execute(IWriter* output, DBDNASequence* database)const = 0;
 
 protected:
+    static std::string getValidDNAName(const std::string& name, DBDNASequence* database);
+
     const ParserParams* m_pParams;
 };
 
