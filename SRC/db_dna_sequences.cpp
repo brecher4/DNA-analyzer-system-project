@@ -9,13 +9,13 @@ void DBDNASequence::addNewDNA(DNAMetaData *dnaMetaData)
 }
 
 
-DNAMetaData& DBDNASequence::findDNAById(size_t idDNA)
+DNAMetaData* DBDNASequence::findDNAById(size_t idDNA)
 {
-    return *(m_hashTableById.find(idDNA)->second);
+    return m_hashTableById.find(idDNA)->second;
 }
 
 
-DNAMetaData& DBDNASequence::findDNAByName(std::string nameDNA)
+DNAMetaData* DBDNASequence::findDNAByName(std::string nameDNA)
 {
-    return findDNAById(m_hashTableByName.find(nameDNA)->second)
+    return findDNAById(m_hashTableByName.find(nameDNA)->second);
 }

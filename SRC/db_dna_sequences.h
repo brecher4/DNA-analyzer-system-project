@@ -13,8 +13,8 @@ class DBDNASequence
 {
 public:
     void addNewDNA(DNAMetaData* dnaMetaData);
-    DNAMetaData& findDNAById(size_t idDNA);
-    DNAMetaData& findDNAByName(std::string nameDNA);
+    DNAMetaData* findDNAById(size_t idDNA);
+    DNAMetaData* findDNAByName(std::string nameDNA);
 
 private:
     std::map<size_t, DNAMetaData*> m_hashTableById;
