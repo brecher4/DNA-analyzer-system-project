@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include <sstream>
+#include <iostream>
 #include "save_command.h"
 #include "parser_params.h"
 #include "db_dna_sequences.h"
@@ -44,6 +45,10 @@ void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
         FileWriter file((*m_pParams)[2]);
         file.write(pDNA->getDNADataAsStr().c_str());
     }
+
+    pDNA->setStatus(UP_TO_DATA);
+
+    std::cout << "\n";
 }
 
 
