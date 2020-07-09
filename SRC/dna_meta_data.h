@@ -17,11 +17,12 @@ enum Status
 class DNAMetaData
 {
 public:
-    DNAMetaData(const DNASequence& dnaSequence, const std::string& name = "");
+    DNAMetaData(const DNASequence& dnaSequence, const std::string& name);
 
     size_t getId()const { return m_id; }
     const std::string& getName()const { return m_name; }
     const DNASequence& getDNASequence()const { return m_DNASequence; }
+    size_t getCountCopies() { return m_countCopies++; }
 
     std::string getDNADataAsStr();
 
@@ -30,6 +31,7 @@ private:
     std::string m_name;
     Status m_status;
     DNASequence m_DNASequence;
+    size_t m_countCopies;
 };
 
 

@@ -3,21 +3,12 @@
 
 
 DNAMetaData::DNAMetaData(const DNASequence& dnaSequence, const std::string& name):
-        m_name(name),m_status(NEW),m_DNASequence(dnaSequence)
+                            m_name(name),m_status(NEW),m_DNASequence(dnaSequence),m_countCopies(1)
 {
     static size_t s_id = 1;
-    static size_t s_count = 1;
 
     m_id = s_id;
     ++s_id;
-
-    if(name.empty())
-    {
-        std::stringstream newName;
-        newName << "seq" << s_count;
-        m_name = newName.str();
-        ++s_count;
-    }
 }
 
 
