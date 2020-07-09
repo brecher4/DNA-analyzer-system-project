@@ -9,7 +9,7 @@ std::string ICommand::getValidDNAName(const std::string& name, DBDNASequence* da
     std::string tempName = name;
     DNAMetaData* pDNAMetaData;
 
-    while(database->isNameExists(name))
+    while(database->isNameExists(tempName))
     {
         pDNAMetaData = database->findDNAByName(name);
         std::stringstream out;
