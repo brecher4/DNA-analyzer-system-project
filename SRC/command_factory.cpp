@@ -2,6 +2,7 @@
 #include "command_factory.h"
 #include "new_command.h"
 #include "load_command.h"
+#include "save_command.h"
 
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
@@ -19,6 +20,11 @@ const ICommand* CommandFactory::getCommand(const ParserParams& params)
     if("load" == params[0])
     {
         return new LoadCommand(params);
+    }
+
+    if("save" == params[0])
+    {
+        return new SaveCommand(params);
     }
 
     throw std::invalid_argument("COMMAND NOT FOUND");
