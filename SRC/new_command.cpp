@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 #include "new_command.h"
 #include "db_dna_sequences.h"
 #include "dna_meta_data.h"
@@ -18,18 +19,24 @@ NewCommand::NewCommand(const ParserParams& params): CreationCommands(params)
 void NewCommand::execute(IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNAMetaData;
+    std::string nameDNA;
+    static size_t count = 1;
 
     if(3 == (*m_pParams).getSize())
     {
-        pDNAMetaData = new DNAMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1));
-        database->addNewDNA(pDNAMetaData);
+        nameDNA = ICommand::getValidDNAName((*m_pParams)[2].substr(1), database);
     }
 
     else
     {
-        pDNAMetaData = new DNAMetaData((*m_pParams)[1]);
-        database->addNewDNA(pDNAMetaData);
+        std::stringstream out;
+        out << "seq" << count;
+        ++count;
+        nameDNA = ICommand::getValidDNAName(out.str(), database);
     }
+
+    pDNAMetaData = new DNAMetaData((*m_pParams)[1],nameDNA);
+    database->addNewDNA(pDNAMetaData);
 
     output->write(pDNAMetaData->getDNADataAsStr().c_str());
 }
