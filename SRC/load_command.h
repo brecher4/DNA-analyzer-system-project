@@ -3,13 +3,13 @@
 
 
 #include <string>
-#include "creation_command.h"
+#include "creation_commands.h"
 
 
 class DNAMetaData;
 
 
-class LoadCommand: public CreationCommand
+class LoadCommand: public CreationCommands
 {
 public:
     LoadCommand(const ParserParams& params);

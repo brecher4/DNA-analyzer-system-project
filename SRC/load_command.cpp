@@ -8,7 +8,7 @@
 #include <sstream>
 
 
-LoadCommand::LoadCommand(const ParserParams& params):CreationCommand(params)
+LoadCommand::LoadCommand(const ParserParams& params): CreationCommands(params)
 {
     if(!isValidParams())
     {

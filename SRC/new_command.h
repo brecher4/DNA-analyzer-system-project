@@ -2,13 +2,13 @@
 #define SRC_NEW_COMMAND_H
 
 
-#include "creation_command.h"
+#include "creation_commands.h"
 
 
 class DNAMetaData;
 
 
-class NewCommand: public CreationCommand
+class NewCommand: public CreationCommands
 {
 public:
     NewCommand(const ParserParams& params);

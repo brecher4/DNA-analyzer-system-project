@@ -6,7 +6,7 @@
 #include "screen_writer.h"
 
 
-NewCommand::NewCommand(const ParserParams& params):CreationCommand(params)
+NewCommand::NewCommand(const ParserParams& params): CreationCommands(params)
 {
     if(!isValidParams())
     {
