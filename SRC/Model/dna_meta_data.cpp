@@ -15,7 +15,6 @@ DNAMetaData::DNAMetaData(const DNASequence& dnaSequence, const std::string& name
 std::string DNAMetaData::getDNADataAsStr()
 {
     std::stringstream data;
-    size_t lengthDNA = m_DNASequence.length();
 
     data << "[" << m_id << "] " << m_name << ": " << m_DNASequence << "\n";
 

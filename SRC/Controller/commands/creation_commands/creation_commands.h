@@ -2,7 +2,7 @@
 #define SRC_CREATION_COMMANDS_H
 
 
-#include "i_command.h"
+#include "../i_command.h"
 
 
 class CreationCommands: public ICommand

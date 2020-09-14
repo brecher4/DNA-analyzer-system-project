@@ -1,10 +1,10 @@
 #include <stdexcept>
 #include <sstream>
 #include "new_command.h"
-#include "db_dna_sequences.h"
-#include "dna_meta_data.h"
-#include "parser_params.h"
-#include "screen_writer.h"
+#include "../../../Model/db_dna_sequences.h"
+#include "../../../Model/dna_meta_data.h"
+#include "../../parser_params.h"
+#include "../../../View/screen_writer.h"
 
 
 NewCommand::NewCommand(const ParserParams& params): CreationCommands(params)

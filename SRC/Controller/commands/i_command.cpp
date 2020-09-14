@@ -1,7 +1,7 @@
-#include <sstream>
 #include "i_command.h"
-#include "db_dna_sequences.h"
-#include "dna_meta_data.h"
+#include "../../Model/db_dna_sequences.h"
+#include "../../Model/dna_meta_data.h"
+#include <sstream>
 
 
 std::string ICommand::getValidDNAName(const std::string& name, DBDNASequence* database)

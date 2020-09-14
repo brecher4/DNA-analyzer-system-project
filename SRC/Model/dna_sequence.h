@@ -3,8 +3,8 @@
 
 
 #include <list>
-#include "i_reader.h"
-#include "i_writer.h"
+#include "../View/i_reader.h"
+#include "../View/i_writer.h"
 
 
 class DNASequence

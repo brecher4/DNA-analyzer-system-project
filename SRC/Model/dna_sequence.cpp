@@ -25,9 +25,9 @@ DNASequence::NucleotideAsChar::operator char()
 
 bool DNASequence::NucleotideAsChar::isValidNucleotide(char nucleotide, const char* validNucleotide)
 {
-    int length = strlen(validNucleotide);
+    size_t length = strlen(validNucleotide);
 
-    for (int i = 0; i < length; i++)
+    for (size_t i = 0; i < length; i++)
     {
         if (validNucleotide[i] == nucleotide)
         {

@@ -1,9 +1,9 @@
 #include <stdexcept>
 #include <sstream>
 #include "dup_command.h"
-#include "parser_params.h"
-#include "db_dna_sequences.h"
-#include "dna_meta_data.h"
+#include "../../parser_params.h"
+#include "../../../Model/db_dna_sequences.h"
+#include "../../../Model/dna_meta_data.h"
 
 
 DupCommand::DupCommand(const ParserParams& params): CreationCommands(params)

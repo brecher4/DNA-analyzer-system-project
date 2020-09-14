@@ -1,9 +1,9 @@
 #include <stdexcept>
 #include "command_factory.h"
-#include "new_command.h"
-#include "load_command.h"
-#include "save_command.h"
-#include "dup_command.h"
+#include "creation_commands/new_command.h"
+#include "creation_commands/load_command.h"
+#include "mannagement_commands/save_command.h"
+#include "creation_commands/dup_command.h"
 
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
