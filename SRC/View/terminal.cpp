@@ -11,7 +11,7 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
     ParserParams params;
     const ICommand* pCommand = NULL;
 
-    while(1)
+    while(true)
     {
         try
         {
@@ -26,9 +26,6 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
 
             pCommand = CommandFactory::getCommand(params);
             pCommand->execute(output, database);
-
-            delete pCommand;
-            pCommand = NULL;
         }
 
         catch (std::invalid_argument& e)
