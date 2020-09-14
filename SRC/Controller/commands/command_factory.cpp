@@ -6,6 +6,9 @@
 #include "creation_commands/dup_command.h"
 
 
+std::map<std::string, ICommand*> CommandFactory::m_commandsHash;
+
+
 void CommandFactory::init()
 {
     m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
@@ -22,27 +25,18 @@ const ICommand* CommandFactory::getCommand(const ParserParams& params)
         throw std::invalid_argument("MISSING COMMAND");
     }
 
-    if("new" == params[0])
+    try
     {
-        return new NewCommand(params);
+        ICommand* command = m_commandsHash.at(params[0]);
+        command->initParams(params);
+
+        return command;
     }
 
-    if("load" == params[0])
+    catch (std::out_of_range& e)
     {
-        return new LoadCommand(params);
+        throw std::invalid_argument("COMMAND NOT FOUND");
     }
-
-    if("save" == params[0])
-    {
-        return new SaveCommand(params);
-    }
-
-    if("dup" == params[0])
-    {
-        return new DupCommand(params);
-    }
-
-    throw std::invalid_argument("COMMAND NOT FOUND");
 }
 
 
