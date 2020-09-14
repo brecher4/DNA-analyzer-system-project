@@ -1,8 +1,8 @@
 #include "system_manager.h"
-#include "terminal.h"
+#include "../View/terminal.h"
 
 
-void SystemManager::start(IReader* input, IWriter* output)
+void SystemManager::start(IReader* input, IWriter* output, UI* userInterface)
 {
-    Terminal::start(input, output, &m_dbDNASequence);
+    userInterface->run(input, output, &m_dbDNASequence);
 }

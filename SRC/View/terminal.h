@@ -2,15 +2,13 @@
 #define SRC_TERMINAL_H
 
 
-class IReader;
-class IWriter;
-class DBDNASequence;
+#include "user_interface.h"
 
 
-class Terminal
+class Terminal:public UI
 {
 public:
-    static void start(IReader* input, IWriter* output, DBDNASequence* database);
+    /* virtual */ void run(IReader* input, IWriter* output, DBDNASequence* database);
 };
 
 

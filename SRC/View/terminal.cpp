@@ -1,12 +1,12 @@
 #include "terminal.h"
-#include "parser_params.h"
-#include "commands/i_command.h"
+#include "../Controller/parser_params.h"
+#include "../Controller/commands/i_command.h"
 #include "../View/i_reader.h"
-#include "commands/command_factory.h"
+#include "../Controller/commands/command_factory.h"
 #include <iostream>
 
 
-void Terminal::start(IReader* input, IWriter* output, DBDNASequence* database)
+void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
 {
     ParserParams params;
     const ICommand* pCommand = NULL;
