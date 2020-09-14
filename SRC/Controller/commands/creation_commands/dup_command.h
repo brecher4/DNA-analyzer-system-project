@@ -11,8 +11,7 @@ class DNAMetaData;
 class DupCommand: public CreationCommands
 {
 public:
-    DupCommand(const ParserParams& params);
-
+    /* virtual */ void initParams(const ParserParams& params);
     /* virtual */ void execute(IWriter* output, DBDNASequence* database)const;
 
 private:

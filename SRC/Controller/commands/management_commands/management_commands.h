@@ -8,7 +8,7 @@
 class ManagementCommands: public ICommand
 {
 public:
-    ManagementCommands(const ParserParams& params): ICommand(params){}
+    /* virtual */ void initParams(const ParserParams& params) = 0;
 };
 
 

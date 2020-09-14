@@ -7,8 +7,10 @@
 #include "../../../View/screen_writer.h"
 
 
-NewCommand::NewCommand(const ParserParams& params): CreationCommands(params)
+void NewCommand::initParams(const ParserParams& params)
 {
+    m_pParams = &params;
+
     if(!isValidParams())
     {
         throw std::invalid_argument("INVALID PARAMETERS");

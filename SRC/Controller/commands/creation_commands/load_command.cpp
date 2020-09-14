@@ -8,8 +8,10 @@
 #include <sstream>
 
 
-LoadCommand::LoadCommand(const ParserParams& params): CreationCommands(params)
+void LoadCommand::initParams(const ParserParams& params)
 {
+    m_pParams = &params;
+
     if(!isValidParams())
     {
         throw std::invalid_argument("INVALID PARAMETERS");

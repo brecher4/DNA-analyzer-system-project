@@ -8,8 +8,10 @@
 #include "../../../Model/dna_meta_data.h"
 
 
-SaveCommand::SaveCommand(const ParserParams& params): ManagementCommands(params)
+void SaveCommand::initParams(const ParserParams& params)
 {
+    m_pParams = &params;
+
     if(!isValidParams())
     {
         throw std::invalid_argument("INVALID PARAMETERS");
