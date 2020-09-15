@@ -22,7 +22,7 @@ void CommandFactory::init()
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
 {
-    if(params[0].empty())
+    if(!params.getSize() && params[0].empty())
     {
         throw std::invalid_argument("MISSING COMMAND");
     }
