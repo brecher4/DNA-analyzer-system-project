@@ -18,6 +18,6 @@ void FileReader::initInput()
 
     else
     {
-        throw std::runtime_error("UNABLE TO OPEN THE FILE :(");
+        throw std::runtime_error("FILED TO OPEN THE FILE :(");
     }
 }
