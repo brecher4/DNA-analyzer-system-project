@@ -19,5 +19,4 @@ private:
 };
 
 
-
 #endif //SRC_LEN_COMMAND_H
