@@ -59,5 +59,6 @@ void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
 bool SaveCommand::isValidParams()
 {
     return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) &&
-                ('@' == (*m_pParams)[1][0] || '#' == (*m_pParams)[1][0]);
+            ('@' == (*m_pParams)[1][0] ||
+            ('#' == (*m_pParams)[1][0] && (*m_pParams)[1].substr(1).find_first_not_of("0123456789") == std::string::npos));
 }
