@@ -31,19 +31,16 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
         catch (std::invalid_argument& e)
         {
             std::cout << "ERROR: " << e.what() << "\n\n";
-            delete pCommand;
         }
 
         catch (std::out_of_range& e)
         {
             std::cout << "ERROR: "  << e.what() << "\n\n";
-            delete pCommand;
         }
 
         catch (std::runtime_error& e)
         {
             std::cout << "ERROR: "  << e.what() << "\n\n";
-            delete pCommand;
         }
     }
 }
