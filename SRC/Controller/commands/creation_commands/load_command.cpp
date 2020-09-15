@@ -31,10 +31,10 @@ void LoadCommand::execute(IWriter* output, DBDNASequence* database)const
 
     else
     {
-        nameDNA = ICommand::getValidDNAName((*m_pParams)[1].substr(0, (*m_pParams)[1].find('.')), database);
+        nameDNA = ICommand::getValidDNAName((*m_pParams)[1].substr(0, (*m_pParams)[1].find_last_of('.')), database);
     }
 
-    FileReader file((*m_pParams)[1]);
+    FileReader file("../Model/DNA_sequences_files/load_DNA/" + (*m_pParams)[1]);
     file.initInput();
 
     pDNAMetaData = new DNAMetaData(file.read(),nameDNA);

@@ -22,6 +22,7 @@ void SaveCommand::initParams(const ParserParams& params)
 void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNA;
+    std::string nameFile;
 
     if('@' == (*m_pParams)[1][0])
     {
@@ -38,15 +39,16 @@ void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
 
     if(m_pParams->getSize() == 2)
     {
-        FileWriter file(pDNA->getName() + ".rawdna");
-        file.write(pDNA->getDNADataAsStr().c_str());
+        nameFile = pDNA->getName() + ".rawdna";
     }
 
     else
     {
-        FileWriter file((*m_pParams)[2]);
-        file.write(pDNA->getDNADataAsStr().c_str());
+        nameFile = (*m_pParams)[2];
     }
+
+    FileWriter file("../Model/DNA_sequences_files/save_DNA/" + nameFile);
+    file.write(pDNA->getDNADataAsStr().c_str());
 
     pDNA->setStatus(UP_TO_DATA);
 
