@@ -4,6 +4,7 @@
 #include "creation_commands/load_command.h"
 #include "management_commands/save_command.h"
 #include "creation_commands/dup_command.h"
+#include "analyzer_commands/len_command.h"
 
 
 std::map<std::string, ICommand*> CommandFactory::m_commandsHash;
@@ -15,6 +16,7 @@ void CommandFactory::init()
     m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
+    m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
 }
 
 
@@ -46,4 +48,5 @@ void CommandFactory::release()
     delete m_commandsHash.at("load");
     delete m_commandsHash.at("dup");
     delete m_commandsHash.at("save");
+    delete m_commandsHash.at("len");
 }
