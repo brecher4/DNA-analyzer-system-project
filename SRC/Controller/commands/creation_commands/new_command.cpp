@@ -44,7 +44,7 @@ void NewCommand::execute(IWriter* output, DBDNASequence* database)const
 }
 
 
-bool NewCommand::isValidParams()
+bool NewCommand::isValidParams()const
 {
     return 2 == (*m_pParams).getSize() || (3 == (*m_pParams).getSize() && '@' == (*m_pParams)[2][0]);
 }

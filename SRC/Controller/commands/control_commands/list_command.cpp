@@ -53,7 +53,7 @@ void ListCommand::execute(IWriter* output, DBDNASequence* database)const
 }
 
 
-bool ListCommand::isValidParams()
+bool ListCommand::isValidParams()const
 {
     return 1 == (*m_pParams).getSize();
 }

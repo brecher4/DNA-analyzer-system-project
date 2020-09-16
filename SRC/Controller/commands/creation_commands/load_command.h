@@ -16,7 +16,7 @@ public:
     /* virtual */ void execute(IWriter* output, DBDNASequence* database)const;
 
 private:
-    bool isValidParams();
+    bool isValidParams()const;
 };
 
 
