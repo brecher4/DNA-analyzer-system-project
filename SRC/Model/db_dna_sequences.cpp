@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <algorithm>
 #include "db_dna_sequences.h"
 #include "dna_meta_data.h"
 
@@ -49,4 +50,20 @@ bool DBDNASequence::isNameExists(std::string nameDNA)
     }
 
     return true;
+}
+
+
+std::vector<size_t> DBDNASequence::getIdsByOrder()const
+{
+    HashById::const_iterator iter;
+    std::vector<size_t> vecIds;
+
+    for(iter = m_hashTableById.begin(); iter != m_hashTableById.end(); ++iter)
+    {
+        vecIds.push_back(iter->first);
+    }
+
+    std::sort(vecIds.begin(), vecIds.end());
+
+    return vecIds;
 }

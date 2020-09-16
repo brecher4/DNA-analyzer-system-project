@@ -4,6 +4,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 
 class DNAMetaData;
@@ -16,6 +17,7 @@ public:
     DNAMetaData* findDNAById(size_t idDNA);
     DNAMetaData* findDNAByName(std::string nameDNA);
     bool isNameExists(std::string nameDNA);
+    std::vector<size_t> getIdsByOrder()const;
 
 private:
     typedef std::map<size_t, DNAMetaData*> HashById;
