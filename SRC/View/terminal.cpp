@@ -25,7 +25,7 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
             }
 
             pCommand = CommandFactory::getCommand(params);
-            pCommand->execute(output, database);
+            pCommand->execute(input, output, database);
         }
 
         catch (std::invalid_argument& e)

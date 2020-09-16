@@ -18,7 +18,7 @@ void DupCommand::initParams(const ParserParams& params)
 }
 
 
-void DupCommand::execute(IWriter* output, DBDNASequence* database)const
+void DupCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNA;
     std::string nameDNA;

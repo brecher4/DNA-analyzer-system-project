@@ -19,7 +19,7 @@ void FindCommand::initParams(const ParserParams& params)
 }
 
 
-void FindCommand::execute(IWriter* output, DBDNASequence* database)const
+void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     const DNASequence* pDNA1 = NULL;
     const DNASequence* pDNA2 = NULL;

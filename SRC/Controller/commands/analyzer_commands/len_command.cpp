@@ -19,7 +19,7 @@ void LenCommand::initParams(const ParserParams& params)
 }
 
 
-void LenCommand::execute(IWriter* output, DBDNASequence* database)const
+void LenCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNA;
     std::string nameDNA;

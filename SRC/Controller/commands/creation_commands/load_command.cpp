@@ -19,7 +19,7 @@ void LoadCommand::initParams(const ParserParams& params)
 }
 
 
-void LoadCommand::execute(IWriter* output, DBDNASequence* database)const
+void LoadCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNAMetaData;
     std::string nameDNA;

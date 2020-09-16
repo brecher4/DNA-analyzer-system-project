@@ -19,7 +19,7 @@ void ShowCommand::initParams(const ParserParams& params)
 }
 
 
-void ShowCommand::execute(IWriter* output, DBDNASequence* database)const
+void ShowCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNA;
 

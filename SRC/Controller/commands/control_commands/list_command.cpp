@@ -19,7 +19,7 @@ void ListCommand::initParams(const ParserParams& params)
 }
 
 
-void ListCommand::execute(IWriter* output, DBDNASequence* database)const
+void ListCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     const std::vector<size_t> vecIds = database->getIdsByOrder();
     std::vector<size_t>::const_iterator iter;

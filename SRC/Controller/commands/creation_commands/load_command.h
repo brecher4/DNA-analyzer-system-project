@@ -13,7 +13,7 @@ class LoadCommand: public CreationCommands
 {
 public:
     /* virtual */ void initParams(const ParserParams& params);
-    /* virtual */ void execute(IWriter* output, DBDNASequence* database)const;
+    /* virtual */ void execute(IReader* input, IWriter* output, DBDNASequence* database)const;
 
 private:
     bool isValidParams()const;

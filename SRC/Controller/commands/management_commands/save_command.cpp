@@ -20,7 +20,7 @@ void SaveCommand::initParams(const ParserParams& params)
 }
 
 
-void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
+void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
     DNAMetaData* pDNA;
     std::string nameFile;
