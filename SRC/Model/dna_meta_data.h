@@ -21,6 +21,7 @@ public:
 
     size_t getId()const { return m_id; }
     const std::string& getName()const { return m_name; }
+    Status getStatus()const { return m_status; }
     const DNASequence& getDNASequence()const { return m_DNASequence; }
     size_t getCountCopies() { return m_countCopies++; }
 
