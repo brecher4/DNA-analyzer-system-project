@@ -5,6 +5,7 @@
 #include "../../parser_params.h"
 #include "../../../Model/db_dna_sequences.h"
 #include "../../../Model/dna_meta_data.h"
+#include "../../utils.h"
 
 
 void LenCommand::initParams(const ParserParams& params)
@@ -45,5 +46,5 @@ void LenCommand::execute(IWriter* output, DBDNASequence* database)const
 bool LenCommand::isValidParams()
 {
     return 2 == (*m_pParams).getSize()  && ('@' == (*m_pParams)[1][0] || ('#' == (*m_pParams)[1][0] &&
-            (*m_pParams)[1].substr(1).find_first_not_of("0123456789") == std::string::npos));
+            Utils::isNum((*m_pParams)[1])));
 }
