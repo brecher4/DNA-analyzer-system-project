@@ -26,7 +26,7 @@ public:
 
     void setStatus(Status status){ m_status = status; }
 
-    std::string getDNADataAsStr();
+    std::string getDNADataFormat();
 
 private:
     size_t m_id;

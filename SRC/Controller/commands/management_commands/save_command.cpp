@@ -48,7 +48,7 @@ void SaveCommand::execute(IWriter* output, DBDNASequence* database)const
     }
 
     FileWriter file("../Model/DNA_sequences_files/save_DNA/" + nameFile);
-    file.write(pDNA->getDNADataAsStr().c_str());
+    file.write(pDNA->getDNADataFormat().c_str());
 
     pDNA->setStatus(UP_TO_DATA);
 

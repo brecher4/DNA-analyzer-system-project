@@ -48,7 +48,7 @@ void DupCommand::execute(IWriter* output, DBDNASequence* database)const
     pDNA = new DNAMetaData(pDNA->getDNASequence(),nameDNA);
     database->addNewDNA(pDNA);
 
-    output->write(pDNA->getDNADataAsStr().c_str());
+    output->write(pDNA->getDNADataFormat().c_str());
 }
 
 

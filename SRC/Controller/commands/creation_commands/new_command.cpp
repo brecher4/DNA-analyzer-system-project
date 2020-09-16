@@ -40,7 +40,7 @@ void NewCommand::execute(IWriter* output, DBDNASequence* database)const
     pDNAMetaData = new DNAMetaData((*m_pParams)[1],nameDNA);
     database->addNewDNA(pDNAMetaData);
 
-    output->write(pDNAMetaData->getDNADataAsStr().c_str());
+    output->write(pDNAMetaData->getDNADataFormat().c_str());
 }
 
 

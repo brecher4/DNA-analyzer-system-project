@@ -12,7 +12,7 @@ DNAMetaData::DNAMetaData(const DNASequence& dnaSequence, const std::string& name
 }
 
 
-std::string DNAMetaData::getDNADataAsStr()
+std::string DNAMetaData::getDNADataFormat()
 {
     std::stringstream data;
 
