@@ -24,3 +24,9 @@ std::string Utils::getShortDNADataFormat(const DNAMetaData *pDNAMetaData)
 
     return data.str();
 }
+
+
+bool Utils::isNum(const std::string& str)
+{
+    return str.substr(1).find_first_not_of("0123456789") == std::string::npos;
+}
