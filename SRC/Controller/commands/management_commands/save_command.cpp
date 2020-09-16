@@ -61,5 +61,5 @@ bool SaveCommand::isValidParams()
 {
     return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) &&
             ('@' == (*m_pParams)[1][0] ||
-            ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1])));
+            ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1].substr(1))));
 }

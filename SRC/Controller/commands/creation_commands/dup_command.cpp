@@ -56,7 +56,7 @@ void DupCommand::execute(IWriter* output, DBDNASequence* database)const
 bool DupCommand::isValidParams()
 {
     return (2 == (*m_pParams).getSize()  && ('@' == (*m_pParams)[1][0] ||
-                ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1])))) ||
+                ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1].substr(1))))) ||
             ((3 == (*m_pParams).getSize() && '@' == (*m_pParams)[2][0]) && ('@' == (*m_pParams)[1][0] ||
-                ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1]))));
+                ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1].substr(1)))));
 }
