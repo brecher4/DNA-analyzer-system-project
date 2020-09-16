@@ -8,6 +8,7 @@
 #include "analyzer_commands/find_command.h"
 #include "control_commands/list_command.h"
 #include "control_commands/show_command.h"
+#include "control_commands/quit_command.h"
 
 
 std::map<std::string, ICommand*> CommandFactory::m_commandsHash;
@@ -23,6 +24,7 @@ void CommandFactory::init()
     m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
+    m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
 }
 
 
@@ -58,4 +60,5 @@ void CommandFactory::release()
     delete m_commandsHash.at("find");
     delete m_commandsHash.at("list");
     delete m_commandsHash.at("show");
+    delete m_commandsHash.at("quit");
 }
