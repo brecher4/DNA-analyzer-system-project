@@ -17,8 +17,6 @@ public:
 
 private:
     bool isValidParams();
-
-    static std::string getDNADataAsStr(const DNAMetaData* pDNAMetaData);
 };
 
 
