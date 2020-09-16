@@ -7,6 +7,7 @@
 #include "analyzer_commands/len_command.h"
 #include "analyzer_commands/find_command.h"
 #include "control_commands/list_command.h"
+#include "control_commands/show_command.h"
 
 
 std::map<std::string, ICommand*> CommandFactory::m_commandsHash;
@@ -21,6 +22,7 @@ void CommandFactory::init()
     m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
+    m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
 }
 
 
@@ -55,4 +57,5 @@ void CommandFactory::release()
     delete m_commandsHash.at("len");
     delete m_commandsHash.at("find");
     delete m_commandsHash.at("list");
+    delete m_commandsHash.at("show");
 }
