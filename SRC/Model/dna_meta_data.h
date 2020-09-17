@@ -26,7 +26,6 @@ public:
     size_t getCountCopies() { return m_countCopies++; }
 
     void setStatus(Status status){ m_status = status; }
-
     std::string getDNADataFormat();
 
 private:
