@@ -13,9 +13,12 @@ public:
     static void init();
     static const ICommand* getCommand(const ParserParams& params);
     static void release();
+    static std::vector<std::string> getCommandNames();
 
 private:
-    static std::map<std::string, ICommand*> m_commandsHash;
+    typedef std::map<std::string, ICommand*> HashCommands;
+
+    static HashCommands m_commandsHash;
 };
 
 
