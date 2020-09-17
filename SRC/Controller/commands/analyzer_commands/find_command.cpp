@@ -82,7 +82,7 @@ void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
 bool FindCommand::isValidParams()const
 {
-    return 3 == (*m_pParams).getSize()  &&
+    return 3 == m_pParams->getSize()  &&
         ('#' != (*m_pParams)[1][0] || Utils::isNum((*m_pParams)[1].substr(1))) &&
         ('#' != (*m_pParams)[2][0] || Utils::isNum((*m_pParams)[2].substr(1)));
 }

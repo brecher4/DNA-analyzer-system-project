@@ -1,11 +1,9 @@
 #include <stdexcept>
 #include <sstream>
-#include <vector>
 #include "quit_command.h"
 #include "../../parser_params.h"
 #include "../../../Model/db_dna_sequences.h"
 #include "../../../Model/dna_meta_data.h"
-#include "../../utils.h"
 
 
 void QuitCommand::initParams(const ParserParams& params)
@@ -73,7 +71,7 @@ void QuitCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
        }
     }
 
-    out << "Thank you for using Dnalanyzer. \nGoodbye!\n";
+    out << "Thank you for using Dna Analyzer. \nGoodbye!\n";
     output->write(out.str().c_str());
     throw std::logic_error("");
 
@@ -82,5 +80,5 @@ void QuitCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
 bool QuitCommand::isValidParams()const
 {
-    return 1 == (*m_pParams).getSize();
+    return 1 == m_pParams->getSize();
 }

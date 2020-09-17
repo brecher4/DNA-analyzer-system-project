@@ -45,6 +45,6 @@ void LenCommand::execute(IReader* input, IWriter* output, DBDNASequence* databas
 
 bool LenCommand::isValidParams()const
 {
-    return 2 == (*m_pParams).getSize()  && ('@' == (*m_pParams)[1][0] ||
+    return 2 == m_pParams->getSize()  && ('@' == (*m_pParams)[1][0] ||
         ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1].substr(1))));
 }

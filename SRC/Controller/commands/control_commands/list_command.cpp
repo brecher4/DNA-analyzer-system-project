@@ -55,5 +55,5 @@ void ListCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
 bool ListCommand::isValidParams()const
 {
-    return 1 == (*m_pParams).getSize();
+    return 1 == m_pParams->getSize();
 }

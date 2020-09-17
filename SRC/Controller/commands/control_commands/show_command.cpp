@@ -36,7 +36,7 @@ void ShowCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
         pDNA = database->findDNAById(idDNA);
     }
 
-    if(3 == (*m_pParams).getSize())
+    if(3 == m_pParams->getSize())
     {
         std::istringstream in((*m_pParams)[2]);
         size_t numChars;
@@ -53,8 +53,8 @@ void ShowCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
 bool ShowCommand::isValidParams()const
 {
-    return (2 == (*m_pParams).getSize() ||
-            (3 == (*m_pParams).getSize() && Utils::isNum((*m_pParams)[2]))) &&
+    return (2 == m_pParams->getSize() ||
+            (3 == m_pParams->getSize() && Utils::isNum((*m_pParams)[2]))) &&
             ('@' == (*m_pParams)[1][0] ||
             ('#' == (*m_pParams)[1][0] && Utils::isNum((*m_pParams)[1].substr(1))));
 }
