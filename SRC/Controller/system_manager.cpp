@@ -1,5 +1,5 @@
 #include "system_manager.h"
-#include "../View/terminal.h"
+#include "../View/ui/terminal.h"
 #include "commands/command_factory.h"
 
 

@@ -4,7 +4,7 @@
 #include "save_command.h"
 #include "../../parser_params.h"
 #include "../../../Model/db_dna_sequences.h"
-#include "../../../View/file_writer.h"
+#include "../../../View/writer/file_writer.h"
 #include "../../../Model/dna_meta_data.h"
 #include "../../utils.h"
 

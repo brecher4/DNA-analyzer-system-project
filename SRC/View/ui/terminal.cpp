@@ -1,8 +1,8 @@
 #include "terminal.h"
-#include "../Controller/parser_params.h"
-#include "../Controller/commands/i_command.h"
-#include "../View/i_reader.h"
-#include "../Controller/commands/command_factory.h"
+#include "../../Controller/parser_params.h"
+#include "../../Controller/commands/i_command.h"
+#include "../reader/i_reader.h"
+#include "../../Controller/commands/command_factory.h"
 #include <iostream>
 
 

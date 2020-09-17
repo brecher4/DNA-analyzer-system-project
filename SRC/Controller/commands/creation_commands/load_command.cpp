@@ -1,9 +1,9 @@
 #include "load_command.h"
-#include "../../../View/screen_writer.h"
+#include "../../../View/writer/screen_writer.h"
 #include "../../parser_params.h"
 #include "../../../Model/dna_meta_data.h"
 #include "../../../Model/db_dna_sequences.h"
-#include "../../../View/file_reader.h"
+#include "../../../View/reader/file_reader.h"
 #include "../../utils.h"
 #include <stdexcept>
 

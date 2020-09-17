@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include "parser_params.h"
-#include "../View/i_reader.h"
+#include "../View/reader/i_reader.h"
 
 
 void ParserParams::parseInput(const IReader& input, char delimiter)

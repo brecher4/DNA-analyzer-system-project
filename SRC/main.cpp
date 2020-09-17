@@ -1,7 +1,7 @@
 #include "Controller/system_manager.h"
-#include "View/keyboard_reader.h"
-#include "View/screen_writer.h"
-#include "View/terminal.h"
+#include "View/reader/keyboard_reader.h"
+#include "View/writer/screen_writer.h"
+#include "View/ui/terminal.h"
 
 
 int main()
