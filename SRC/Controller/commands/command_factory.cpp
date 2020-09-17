@@ -12,22 +12,24 @@
 #include "control_commands/quit_command.h"
 
 
-std::map<std::string, ICommand*> CommandFactory::m_commandsHash;
+CommandFactory::HashCommands CommandFactory::m_commandsHash;
 
-
-void CommandFactory::init()
+struct InitCommandsHash
 {
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
-}
+    InitCommandsHash()
+    {
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
+    }
+}initCommandsHash;
 
 
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
