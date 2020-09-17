@@ -14,6 +14,7 @@ class SystemManager
 {
 public:
     void start(IReader* input, IWriter* output, UI* userInterface);
+    void end();
 
 private:
    DBDNASequence m_dbDNASequence;
