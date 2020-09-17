@@ -1,7 +1,7 @@
-#include "system_manager.h"
-#include "../View/keyboard_reader.h"
-#include "../View/screen_writer.h"
-#include "../View/terminal.h"
+#include "Controller/system_manager.h"
+#include "View/keyboard_reader.h"
+#include "View/screen_writer.h"
+#include "View/terminal.h"
 
 
 int main()
@@ -11,6 +11,7 @@ int main()
     Terminal terminal;
     SystemManager system;
     system.start(&input, &output, &terminal);
+    system.end();
 
     return 0;
 }
