@@ -38,7 +38,7 @@ void LoadCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
     file.initInput();
 
     pDNAMetaData = new DNAMetaData(file.read(),nameDNA);
-    pDNAMetaData->setStatus(UP_TO_DATA);
+    database->setStatusDNA(pDNAMetaData, UP_TO_DATA);
     database->addNewDNA(pDNAMetaData);
 
     output->write(Utils::getShortDNADataFormat(pDNAMetaData).c_str());

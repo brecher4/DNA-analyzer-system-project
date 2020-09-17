@@ -51,7 +51,7 @@ void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
     FileWriter file("../Model/DNA_sequences_files/save_DNA/" + nameFile);
     file.write(pDNA->getDNADataFormat().c_str());
 
-    pDNA->setStatus(UP_TO_DATA);
+    database->setStatusDNA(pDNA, UP_TO_DATA);
 
     std::cout << "\n";
 }
