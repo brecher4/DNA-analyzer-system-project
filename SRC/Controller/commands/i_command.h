@@ -18,9 +18,6 @@ public:
 
     virtual void initParams(const ParserParams& params) = 0;
     virtual void execute(IReader* input, IWriter* output, DBDNASequence* database)const = 0;
-
-protected:
-    const ParserParams* m_pParams;
 };
 
 
