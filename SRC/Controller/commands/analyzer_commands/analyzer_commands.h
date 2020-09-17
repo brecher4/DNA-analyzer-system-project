@@ -2,10 +2,10 @@
 #define SRC_ANALYZER_COMMANDS_H
 
 
-#include "../i_command.h"
+#include "../command.h"
 
 
-class AnalyzerCommands: public ICommand
+class AnalyzerCommands: public Command
 {
 public:
     /* virtual */ void initParams(const ParserParams& params) = 0;

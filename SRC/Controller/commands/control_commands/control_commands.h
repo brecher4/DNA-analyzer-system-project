@@ -2,10 +2,10 @@
 #define SRC_CONTROL_COMMANDS_H
 
 
-#include "../i_command.h"
+#include "../command.h"
 
 
-class ControlCommands: public ICommand
+class ControlCommands: public Command
 {
 public:
     /* virtual */ void initParams(const ParserParams& params) = 0;

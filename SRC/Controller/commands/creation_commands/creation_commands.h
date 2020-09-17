@@ -2,10 +2,10 @@
 #define SRC_CREATION_COMMANDS_H
 
 
-#include "../i_command.h"
+#include "../command.h"
 
 
-class CreationCommands: public ICommand
+class CreationCommands: public Command
 {
 public:
     /* virtual */ void initParams(const ParserParams& params) = 0;
