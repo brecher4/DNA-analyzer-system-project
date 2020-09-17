@@ -40,7 +40,7 @@ void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
     if(m_pParams->getSize() == 2)
     {
-        nameFile = pDNA->getName() + ".rawdna";
+        nameFile = pDNA->getName();
     }
 
     else
@@ -48,7 +48,7 @@ void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
         nameFile = (*m_pParams)[2];
     }
 
-    FileWriter file("../Model/DNA_sequences_files/save_DNA/" + nameFile);
+    FileWriter file("../Model/DNA_sequences_files/save_DNA/" + nameFile + ".rawdna");
     file.write(pDNA->getDNADataFormat().c_str());
 
     database->setStatusDNA(pDNA, UP_TO_DATA);
