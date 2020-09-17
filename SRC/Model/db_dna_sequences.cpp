@@ -4,10 +4,21 @@
 #include "dna_meta_data.h"
 
 
+DBDNASequence::DBDNASequence()
+{
+    std::vector<size_t> vec;
+
+    m_hashTableByStatus.insert(std::pair<Status, std::vector<size_t> >(UP_TO_DATA, vec));
+    m_hashTableByStatus.insert(std::pair<Status, std::vector<size_t> >(MODIFIED, vec));
+    m_hashTableByStatus.insert(std::pair<Status, std::vector<size_t> >(NEW, vec));
+}
+
+
 void DBDNASequence::addNewDNA(DNAMetaData *dnaMetaData)
 {
     m_hashTableById.insert(std::pair<size_t, DNAMetaData*>(dnaMetaData->getId(), dnaMetaData));
     m_hashTableByName.insert(std::pair<std::string, size_t>(dnaMetaData->getName(), dnaMetaData->getId()));
+    m_hashTableByStatus.at(dnaMetaData->getStatus()).push_back(dnaMetaData->getId());
 }
 
 
@@ -53,6 +64,17 @@ bool DBDNASequence::isNameExists(std::string nameDNA)
 }
 
 
+void DBDNASequence::setStatusDNA(DNAMetaData* dnaMetaData, Status status)
+{
+    size_t id = dnaMetaData->getId();
+    std::vector<size_t>& vec = m_hashTableByStatus.at(dnaMetaData->getStatus());
+    std::vector<size_t>::iterator iter = std::find(vec.begin(), vec.end(), id);
+    vec.erase(iter);
+    m_hashTableByStatus.at(status).push_back(id);
+    dnaMetaData->setStatus(status);
+}
+
+
 std::vector<size_t> DBDNASequence::getIdsByOrder()const
 {
     HashById::const_iterator iter;
@@ -66,4 +88,16 @@ std::vector<size_t> DBDNASequence::getIdsByOrder()const
     std::sort(vecIds.begin(), vecIds.end());
 
     return vecIds;
+}
+
+
+size_t DBDNASequence::getNumModifiedDNA()const
+{
+    return m_hashTableByStatus.at(MODIFIED).size();
+}
+
+
+size_t DBDNASequence::getNumNewDNA()const
+{
+    return m_hashTableByStatus.at(NEW).size();
 }
