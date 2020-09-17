@@ -5,6 +5,7 @@
 #include "../../../Model/dna_meta_data.h"
 #include "../../parser_params.h"
 #include "../../../View/screen_writer.h"
+#include "../../utils.h"
 
 
 void NewCommand::initParams(const ParserParams& params)
@@ -26,7 +27,7 @@ void NewCommand::execute(IReader* input, IWriter* output, DBDNASequence* databas
 
     if(3 == (*m_pParams).getSize())
     {
-        nameDNA = ICommand::getValidDNAName((*m_pParams)[2].substr(1), database);
+        nameDNA = Utils::getValidDNAName((*m_pParams)[2].substr(1), database);
     }
 
     else
@@ -34,7 +35,7 @@ void NewCommand::execute(IReader* input, IWriter* output, DBDNASequence* databas
         std::stringstream out;
         out << "seq" << count;
         ++count;
-        nameDNA = ICommand::getValidDNAName(out.str(), database);
+        nameDNA = Utils::getValidDNAName(out.str(), database);
     }
 
     pDNAMetaData = new DNAMetaData((*m_pParams)[1],nameDNA);

@@ -1,6 +1,7 @@
 #include <sstream>
 #include "utils.h"
 #include "../Model/dna_meta_data.h"
+#include "../Model/db_dna_sequences.h"
 
 
 std::string Utils::getShortDNADataFormat(const DNAMetaData *pDNAMetaData)
@@ -23,6 +24,23 @@ std::string Utils::getShortDNADataFormat(const DNAMetaData *pDNAMetaData)
     data << "\n";
 
     return data.str();
+}
+
+
+std::string Utils::getValidDNAName(const std::string& name, DBDNASequence* database)
+{
+    std::string tempName = name;
+    DNAMetaData* pDNAMetaData;
+
+    while(database->isNameExists(tempName))
+    {
+        pDNAMetaData = database->findDNAByName(name);
+        std::stringstream out;
+        out << tempName << "_" << pDNAMetaData->getCountCopies();
+        tempName = out.str();
+    }
+
+    return tempName;
 }
 
 

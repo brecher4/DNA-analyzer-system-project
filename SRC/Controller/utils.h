@@ -6,12 +6,14 @@
 
 
 class DNAMetaData;
+class DBDNASequence;
 
 
 class Utils
 {
 public:
     static std::string getShortDNADataFormat(const DNAMetaData* pDNAMetaData);
+    static std::string getValidDNAName(const std::string& name, DBDNASequence* database);
     static bool isNum(const std::string& str);
 };
 

@@ -26,12 +26,12 @@ void LoadCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
     if(3 == (*m_pParams).getSize())
     {
-        nameDNA = ICommand::getValidDNAName((*m_pParams)[2].substr(1), database);
+        nameDNA = Utils::getValidDNAName((*m_pParams)[2].substr(1), database);
     }
 
     else
     {
-        nameDNA = ICommand::getValidDNAName((*m_pParams)[1].substr(0, (*m_pParams)[1].find_last_of('.')), database);
+        nameDNA = Utils::getValidDNAName((*m_pParams)[1].substr(0, (*m_pParams)[1].find_last_of('.')), database);
     }
 
     FileReader file("../Model/DNA_sequences_files/load_DNA/" + (*m_pParams)[1]);

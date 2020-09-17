@@ -38,12 +38,12 @@ void DupCommand::execute(IReader* input, IWriter* output, DBDNASequence* databas
 
     if(3 == (*m_pParams).getSize())
     {
-        nameDNA = ICommand::getValidDNAName((*m_pParams)[2].substr(1), database);
+        nameDNA = Utils::getValidDNAName((*m_pParams)[2].substr(1), database);
     }
 
     else
     {
-        nameDNA = ICommand::getValidDNAName(pDNA->getName(), database);
+        nameDNA = Utils::getValidDNAName(pDNA->getName(), database);
     }
 
     pDNA = new DNAMetaData(pDNA->getDNASequence(),nameDNA);

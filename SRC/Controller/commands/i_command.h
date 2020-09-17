@@ -4,6 +4,7 @@
 
 #include <string>
 
+
 class IReader;
 class IWriter;
 class DBDNASequence;
@@ -19,8 +20,6 @@ public:
     virtual void execute(IReader* input, IWriter* output, DBDNASequence* database)const = 0;
 
 protected:
-    static std::string getValidDNAName(const std::string& name, DBDNASequence* database);
-
     const ParserParams* m_pParams;
 };
 
