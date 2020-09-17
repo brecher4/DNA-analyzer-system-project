@@ -1,0 +1,5 @@
+Loads the sequence from the file.
+>>>> syntax: load <file_name> [@<sequence_name>] <<<<
+----------------------------------------------------------------
+Assigns the sequence with a number (ID) and a default name,
+if one was not provided, and prints it.

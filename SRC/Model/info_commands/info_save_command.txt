@@ -1,0 +1,5 @@
+Saves sequence <seq> to a file.
+>>>> syntax: save <seq> [<filename>] <<<<
+----------------------------------------------------------------
+If <filename> is not provided, the sequence name is being used.
+The file is suffixed by .rawdna.

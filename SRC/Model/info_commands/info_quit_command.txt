@@ -1,0 +1,4 @@
+Prints a goodbye message and exists the application.
+>>>> syntax: quit <<<<
+----------------------------------------------------------------
+If not all the sequences are up to date, it first requests for a confirmation.

@@ -1,0 +1,5 @@
+Duplicates the sequence.
+>>>> syntax: dup <seq> [@<new_seq_name>] <<<<
+----------------------------------------------------------------
+If a new name is not provided, then it will be based on the name of <seq>,
+suffixed by _1 (or _2, _3, ... if the name is already taken).

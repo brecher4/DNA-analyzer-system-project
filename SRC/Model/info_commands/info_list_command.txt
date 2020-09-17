@@ -1,0 +1,9 @@
+Shows all the sequences in the system, by order.
+>>>> syntax: list <<<<
+----------------------------------------------------------------
+For each sequence, it shows its number, its name and the sequence itself (up to 40 chars).
+
+A sequence that is connected to a file (that is, either was loaded from a file,
+or was saved to a file at least once) and was not manipulated since last save, is prefixed by a - sign.
+A sequence that was manipulated after last save, is prefixed by a * sign.
+A sequence that is not connected to any file yet is prefixed by a o sign.

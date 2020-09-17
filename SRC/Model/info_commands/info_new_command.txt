@@ -1,0 +1,5 @@
+Creates a new sequence, as described by the followed sequence.
+>>>> syntax: new <sequence> [@<sequence_name>] <<<<
+----------------------------------------------------------------
+If the @<sequence_name> is used, then this will be the name of the new sequence.
+Otherwise, a default name will be provided.

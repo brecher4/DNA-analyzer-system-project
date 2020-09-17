@@ -1,0 +1,8 @@
+Shows the sequence: Its ID, its name, its status and the sequence itself.
+>>>> syntax: show `<seq>` [<num_chars>] <<<<
+----------------------------------------------------------------
+If <num_chars> is provided, then this is the number of chars to print (if the sequence is longer than that).
+Otherwise, <num_chars> defaults to 99.
+
+The ID, name and status are printed in the first line.
+Then, the sequence itself is printed in the next lines, no more than 99 chars per line.

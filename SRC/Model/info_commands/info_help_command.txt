@@ -1,0 +1,6 @@
+Gives information about the commands.
+>>>> syntax: help [<command>] <<<<
+----------------------------------------------------------------
+If <command> is not provided, help lists all the available commands.
+If a valid command is provided, it shows a short explanation of it.
+If the value provided is not a valid command, a relevant message is printed.
