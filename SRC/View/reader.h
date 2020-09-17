@@ -8,7 +8,7 @@
 class Reader:public IReader
 {
 public:
-    /* virtual */ std::string read()const{ return m_data;}
+    /* virtual */ std::string read()const{ return m_data; }
 
 protected:
     std::string m_data;
