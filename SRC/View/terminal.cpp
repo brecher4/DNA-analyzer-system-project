@@ -19,11 +19,6 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
             input->initInput();
             params.parseInput(*input);
 
-            if("quit" == params[0])
-            {
-                break;
-            }
-
             pCommand = CommandFactory::getCommand(params);
             pCommand->execute(input, output, database);
         }
@@ -41,6 +36,11 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
         catch (std::runtime_error& e)
         {
             std::cout << "ERROR: "  << e.what() << "\n\n";
+        }
+
+        catch (std::logic_error& e)
+        {
+            break;
         }
     }
 }
