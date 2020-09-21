@@ -21,37 +21,12 @@ void FindCommand::initParams(const ParserParams& params)
 
 void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
-    const DNASequence* pDNA1 = NULL;
-    const DNASequence* pDNA2 = NULL;
     bool isAllocateDNASeq = false;
     std::string nameDNA;
     size_t index;
 
-    if('@' == (*m_pParams)[1][0])
-    {
-        pDNA1 = &(database->findDNAByName((*m_pParams)[1].substr(1))->getDNASequence());
-    }
-
-    else if('#' == (*m_pParams)[1][0])
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t idDNA;
-        in >> idDNA;
-        pDNA1 = &(database->findDNAById(idDNA)->getDNASequence());
-    }
-
-    if('@' == (*m_pParams)[2][0])
-    {
-        pDNA2 = &(database->findDNAByName((*m_pParams)[2].substr(1))->getDNASequence());
-    }
-
-    else if('#' == (*m_pParams)[2][0])
-    {
-        std::istringstream in((*m_pParams)[2].substr(1));
-        size_t idDNA;
-        in >> idDNA;
-        pDNA2 = &(database->findDNAById(idDNA)->getDNASequence());
-    }
+    const DNASequence* pDNA1 = &(Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database)->getDNASequence());
+    const DNASequence* pDNA2 = &(Utils::findDNAMetaData((*m_pParams)[2][0], (*m_pParams)[2].substr(1), database)->getDNASequence());
 
     if(!pDNA1)
     {
@@ -69,9 +44,7 @@ void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
         index = pDNA1->find((*m_pParams)[2]);
     }
 
-    std::stringstream out;
-    out << index;
-    output->write(out.str().c_str());
+    output->write(Utils::castNumToStr(index).c_str());
 
     if(isAllocateDNASeq)
     {

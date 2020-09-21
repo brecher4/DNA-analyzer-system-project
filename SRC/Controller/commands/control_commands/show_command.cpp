@@ -21,27 +21,11 @@ void ShowCommand::initParams(const ParserParams& params)
 
 void ShowCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
-    DNAMetaData* pDNA;
-
-    if('@' == (*m_pParams)[1][0])
-    {
-        pDNA = database->findDNAByName((*m_pParams)[1].substr(1));
-    }
-
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t idDNA;
-        in >> idDNA;
-        pDNA = database->findDNAById(idDNA);
-    }
+    DNAMetaData* pDNA = Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database);
 
     if(3 == m_pParams->getSize())
     {
-        std::istringstream in((*m_pParams)[2]);
-        size_t numChars;
-        in >> numChars;
-        output->write(getDNADataFormat(*pDNA, numChars).c_str());
+        output->write(getDNADataFormat(*pDNA, Utils::castStrToNum((*m_pParams)[2])).c_str());
     }
 
     else

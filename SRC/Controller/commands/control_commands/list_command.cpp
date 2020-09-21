@@ -24,7 +24,6 @@ void ListCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
     const std::vector<size_t> vecIds = database->getIdsByOrder();
     std::vector<size_t>::const_iterator iter;
     std::stringstream out;
-    Status status;
     DNAMetaData* pDNA;
 
     for(iter = vecIds.begin(); iter != vecIds.end(); ++iter)

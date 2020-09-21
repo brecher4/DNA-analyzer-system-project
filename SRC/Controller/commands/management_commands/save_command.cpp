@@ -22,21 +22,8 @@ void SaveCommand::initParams(const ParserParams& params)
 
 void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
-    DNAMetaData* pDNA;
     std::string nameFile;
-
-    if('@' == (*m_pParams)[1][0])
-    {
-        pDNA = database->findDNAByName((*m_pParams)[1].substr(1));
-    }
-
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t idDNA;
-        in >> idDNA;
-        pDNA = database->findDNAById(idDNA);
-    }
+    DNAMetaData* pDNA = Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database);
 
     if(m_pParams->getSize() == 2)
     {
@@ -53,7 +40,7 @@ void SaveCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
 
     database->setStatusDNA(pDNA, UP_TO_DATA);
 
-    std::cout << "\n";
+    output->write("DNA saved successfully \n");
 }
 
 

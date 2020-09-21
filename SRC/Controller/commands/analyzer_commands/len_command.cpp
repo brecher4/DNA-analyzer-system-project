@@ -21,25 +21,10 @@ void LenCommand::initParams(const ParserParams& params)
 
 void LenCommand::execute(IReader* input, IWriter* output, DBDNASequence* database)const
 {
-    DNAMetaData* pDNA;
     std::string nameDNA;
+    DNAMetaData* pDNA = Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database);
 
-    if('@' == (*m_pParams)[1][0])
-    {
-        pDNA = database->findDNAByName((*m_pParams)[1].substr(1));
-    }
-
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t idDNA;
-        in >> idDNA;
-        pDNA = database->findDNAById(idDNA);
-    }
-
-    std::stringstream len;
-    len << pDNA->getDNASequence().length();
-    output->write(len.str().c_str());
+    output->write(Utils::castNumToStr(pDNA->getDNASequence().length()).c_str());
 }
 
 
