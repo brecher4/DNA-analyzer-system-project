@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <list>
 
 
 class DNAMetaData;
@@ -18,6 +19,7 @@ public:
 
     static size_t castStrToNum(const std::string& str);
     static std::string castNumToStr(size_t num);
+    static std::string castNumsListToStr(const std::list<size_t>& numsList);
     static bool isNum(const std::string& str);
 };
 

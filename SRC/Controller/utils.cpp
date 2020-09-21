@@ -82,6 +82,20 @@ std::string Utils::castNumToStr(size_t num)
 }
 
 
+std::string Utils::castNumsListToStr(const std::list<size_t>& numsList)
+{
+    std::stringstream out;
+    std::list<size_t>::const_iterator iter;
+
+    for(iter = numsList.begin(); iter != numsList.end(); ++iter)
+    {
+        out << *iter << " ";
+    }
+
+    return out.str();
+}
+
+
 bool Utils::isNum(const std::string& str)
 {
     return str.find_first_not_of("0123456789") == std::string::npos;
