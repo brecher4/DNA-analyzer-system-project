@@ -1,0 +1,8 @@
+Finds all the indices where the sub-sequence appears.
+It has two flavors:
+1. Takes an expressed sub-sequence
+    >>>> syntax: findall <seq> <expressed_sub_seq> <<<<
+
+2. Refers an existing sub-sequence:
+    >>>> syntax: findall <seq_to_find_in> <seq_to_be_found> <<<<
+----------------------------------------------------------------
