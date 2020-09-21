@@ -206,7 +206,7 @@ size_t DNASequence::count(const DNASequence& dnaSequence)const
 
     if (index == 0)
     {
-        numOfOccurrences++;
+        ++numOfOccurrences;
     }
 
     for (size_t i = 1; i < m_lengthDnaSequence && index != temp.m_lengthDnaSequence; i++)
@@ -216,7 +216,7 @@ size_t DNASequence::count(const DNASequence& dnaSequence)const
 
         if(index == 0)
         {
-            numOfOccurrences++;
+            ++numOfOccurrences;
         }
     }
 
