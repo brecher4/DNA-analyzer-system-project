@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include <sstream>
 #include <string>
 #include "find_command.h"
 #include "../../parser_params.h"

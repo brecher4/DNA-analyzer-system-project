@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include <sstream>
 #include "new_command.h"
 #include "../../../Model/db_dna_sequences.h"
 #include "../../../Model/dna_meta_data.h"
