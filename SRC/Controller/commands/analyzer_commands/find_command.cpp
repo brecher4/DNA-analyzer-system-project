@@ -25,17 +25,26 @@ void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
     std::string nameDNA;
     size_t index;
 
-    const DNASequence* pDNA1 = &(Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database)->getDNASequence());
-    const DNASequence* pDNA2 = &(Utils::findDNAMetaData((*m_pParams)[2][0], (*m_pParams)[2].substr(1), database)->getDNASequence());
+    const DNAMetaData* pDNAMetaData1 = Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database);
+    const DNAMetaData* pDNAMetaData2 = Utils::findDNAMetaData((*m_pParams)[2][0], (*m_pParams)[2].substr(1), database);
 
-    if(!pDNA1)
+    const DNASequence* pDNA1 = NULL;
+    const DNASequence* pDNA2 = NULL;
+
+    if(pDNAMetaData1)
+    {
+        pDNA1 = &(pDNAMetaData1->getDNASequence());
+    }
+
+    else
     {
         pDNA1 = new DNASequence((*m_pParams)[1]);
         isAllocateDNASeq = true;
     }
 
-    if(pDNA2)
+    if(pDNAMetaData2)
     {
+        pDNA2 = &(pDNAMetaData2->getDNASequence());
         index = pDNA1->find(*pDNA2);
     }
 
@@ -44,7 +53,7 @@ void FindCommand::execute(IReader* input, IWriter* output, DBDNASequence* databa
         index = pDNA1->find((*m_pParams)[2]);
     }
 
-    output->write(Utils::castNumToStr(index).c_str());
+    output->write((Utils::castNumToStr(index) + "\n").c_str());
 
     if(isAllocateDNASeq)
     {
