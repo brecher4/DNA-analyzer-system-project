@@ -8,7 +8,7 @@
 class ScreenWriter: public IWriter
 {
 public:
-    void write(const char* sequence)const;
+    /* virtual */ void write(const char* sequence)const;
 };
 
 

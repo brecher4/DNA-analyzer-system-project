@@ -11,7 +11,7 @@ class FileWriter:public IWriter
 public:
     FileWriter(const std::string& fileName);
 
-    void write(const char* sequence)const;
+    /* virtual */ void write(const char* sequence)const;
 
 private:
     std::string m_fileName;
