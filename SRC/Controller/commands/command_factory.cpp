@@ -7,6 +7,7 @@
 #include "analysis_commands/count_command.h"
 #include "analysis_commands/len_command.h"
 #include "analysis_commands/find_command.h"
+#include "analysis_commands/find_all_command.h"
 #include "control_commands/help_command.h"
 #include "control_commands/list_command.h"
 #include "control_commands/show_command.h"
@@ -26,6 +27,7 @@ struct InitCommandsHash
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("count", new CountCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("findall", new FindAllCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
@@ -65,6 +67,7 @@ void CommandFactory::release()
     delete m_commandsHash.at("count");
     delete m_commandsHash.at("len");
     delete m_commandsHash.at("find");
+    delete m_commandsHash.at("findall");
     delete m_commandsHash.at("help");
     delete m_commandsHash.at("list");
     delete m_commandsHash.at("show");
