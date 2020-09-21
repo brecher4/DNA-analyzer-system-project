@@ -10,6 +10,8 @@ class DBDNASequence;
 class UI
 {
 public:
+    virtual ~UI(){}
+
     virtual void run(IReader* input, IWriter* output, DBDNASequence* database) = 0;
 };
 
