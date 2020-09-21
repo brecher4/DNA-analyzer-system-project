@@ -1,14 +1,14 @@
-#ifndef SRC_FIND_COMMAND_H
-#define SRC_FIND_COMMAND_H
+#ifndef SRC_LEN_COMMAND_H
+#define SRC_LEN_COMMAND_H
 
 
-#include "analyzer_commands.h"
+#include "analysis_commands.h"
 
 
 class DNAMetaData;
 
 
-class FindCommand: public AnalyzerCommands
+class LenCommand: public AnalysisCommands
 {
 public:
     /* virtual */ void initParams(const ParserParams& params);
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //SRC_FIND_COMMAND_H
+#endif //SRC_LEN_COMMAND_H
