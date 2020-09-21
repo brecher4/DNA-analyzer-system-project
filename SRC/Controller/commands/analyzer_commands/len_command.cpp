@@ -24,7 +24,7 @@ void LenCommand::execute(IReader* input, IWriter* output, DBDNASequence* databas
     std::string nameDNA;
     DNAMetaData* pDNA = Utils::findDNAMetaData((*m_pParams)[1][0], (*m_pParams)[1].substr(1), database);
 
-    output->write(Utils::castNumToStr(pDNA->getDNASequence().length()).c_str());
+    output->write((Utils::castNumToStr(pDNA->getDNASequence().length()) + "\n").c_str());
 }
 
 
