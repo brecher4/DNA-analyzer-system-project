@@ -3,6 +3,7 @@
 #include "creation_commands/new_command.h"
 #include "creation_commands/load_command.h"
 #include "management_commands/save_command.h"
+#include "management_commands/rename_command.h"
 #include "creation_commands/dup_command.h"
 #include "analysis_commands/count_command.h"
 #include "analysis_commands/len_command.h"
@@ -23,6 +24,7 @@ struct InitCommandsHash
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("new", new NewCommand));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("load", new LoadCommand));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("dup", new DupCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("rename", new RenameCommand));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("save", new SaveCommand));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("count", new CountCommand));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("len", new LenCommand));
@@ -63,6 +65,7 @@ void CommandFactory::release()
     delete m_commandsHash.at("new");
     delete m_commandsHash.at("load");
     delete m_commandsHash.at("dup");
+    delete m_commandsHash.at("rename");
     delete m_commandsHash.at("save");
     delete m_commandsHash.at("count");
     delete m_commandsHash.at("len");
