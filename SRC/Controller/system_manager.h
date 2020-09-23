@@ -5,6 +5,7 @@
 #include "../Model/db_dna_sequences.h"
 
 
+class ParserParams;
 class IReader;
 class IWriter;
 class UI;
@@ -15,6 +16,7 @@ class SystemManager
 public:
     void start(IReader* input, IWriter* output, UI* userInterface);
     void end();
+    void executeCommand(ParserParams& params, IReader* input, IWriter* output);
 
 private:
    DBDNASequence m_dbDNASequence;
