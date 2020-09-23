@@ -1,0 +1,4 @@
+Renames the name of the sequence to the new name.
+>>>> syntax: rename <seq> @<new_name> <<<<
+----------------------------------------------------------------
+If that name is already taken, an explanatory error message is printed.
