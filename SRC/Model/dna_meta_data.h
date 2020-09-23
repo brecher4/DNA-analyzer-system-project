@@ -25,6 +25,7 @@ public:
     const DNASequence& getDNASequence()const { return m_DNASequence; }
     size_t getCountCopies() { return m_countCopies++; }
 
+    void setName(const std::string& newName){ m_name = newName; }
     void setStatus(Status status){ m_status = status; }
     std::string getDNADataFormat();
 
