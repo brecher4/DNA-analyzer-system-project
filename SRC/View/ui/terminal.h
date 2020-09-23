@@ -8,7 +8,7 @@
 class Terminal:public UI
 {
 public:
-    /* virtual */ void run(IReader* input, IWriter* output, DBDNASequence* database);
+    /* virtual */ void run(IReader* input, IWriter* output, DBDNASequence* database, Callback<SystemManager>& callback);
 };
 
 

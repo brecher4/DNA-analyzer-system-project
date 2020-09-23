@@ -1,12 +1,10 @@
+#include <iostream>
 #include "terminal.h"
 #include "../../Controller/parser_params.h"
 #include "../../Controller/commands/i_command.h"
-#include "../reader/i_reader.h"
-#include "../../Controller/commands/command_factory.h"
-#include <iostream>
 
 
-void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
+void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database, Callback<SystemManager>& callback)
 {
     ParserParams params;
     const ICommand* pCommand = NULL;
@@ -17,10 +15,7 @@ void Terminal::run(IReader* input, IWriter* output, DBDNASequence* database)
         {
             std::cout << "> cmd >>> ";
             input->initInput();
-            params.parseInput(*input);
-
-            pCommand = CommandFactory::getCommand(params);
-            pCommand->execute(input, output, database);
+            callback(params, input, output);
         }
 
         catch (std::invalid_argument& e)
