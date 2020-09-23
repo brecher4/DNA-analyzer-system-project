@@ -18,6 +18,7 @@ public:
 
 private:
     typedef std::map<std::string, ICommand*> HashCommands;
+    typedef std::pair<std::string, ICommand*> PairCommand;
 
     static HashCommands m_commandsHash;
 };

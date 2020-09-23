@@ -20,18 +20,18 @@ struct InitCommandsHash
 {
     InitCommandsHash()
     {
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("count", new CountCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("findall", new FindAllCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
-        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("new", new NewCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("load", new LoadCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("dup", new DupCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("save", new SaveCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("count", new CountCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("len", new LenCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("find", new FindCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("findall", new FindAllCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("help", new HelpCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("list", new ListCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("show", new ShowCommand));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("quit", new QuitCommand));
     }
 }initCommandsHash;
 
