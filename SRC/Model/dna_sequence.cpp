@@ -52,7 +52,7 @@ void DNASequence::copyCharPtrToNucleotide(const char* dnaSequence)
 
     while (*ptrDnaSequence)
     {
-        m_dnaSequence[i] = *ptrDnaSequence;
+        m_nucleotideSequence[i] = *ptrDnaSequence;
         i++;
         ptrDnaSequence++;
     }
@@ -66,7 +66,7 @@ void DNASequence::initDataDnaSequence(const char* dnaSequence)
         throw std::invalid_argument("DNA ISN'T VALID :(");
     }
 
-    m_dnaSequence = new Nucleotide[strlen(dnaSequence) + 1];
+    m_nucleotideSequence = new Nucleotide[strlen(dnaSequence) + 1];
     copyCharPtrToNucleotide(dnaSequence);
     m_lengthDnaSequence = strlen(dnaSequence);
 }
@@ -92,7 +92,7 @@ DNASequence::DNASequence(const IReader& iReader)
 
 DNASequence::~DNASequence()
 {
-    delete[] m_dnaSequence;
+    delete[] m_nucleotideSequence;
 }
 
 
@@ -104,12 +104,12 @@ DNASequence::DNASequence(const DNASequence& dnaSequence)
 
 const DNASequence& DNASequence::operator=(const DNASequence& dnaSequence)
 {
-    if (m_dnaSequence == dnaSequence.m_dnaSequence)
+    if (m_nucleotideSequence == dnaSequence.m_nucleotideSequence)
     {
         return *this;
     }
 
-    delete[] m_dnaSequence;
+    delete[] m_nucleotideSequence;
     initDataDnaSequence(dnaSequence.getDnaSequenceAsStr());
 
     return *this;
@@ -120,7 +120,7 @@ DNASequence::Nucleotide& DNASequence::operator[](size_t index)
 {
     if (index < m_lengthDnaSequence)
     {
-        return m_dnaSequence[index];
+        return m_nucleotideSequence[index];
     }
 
     throw std::out_of_range("INDEX ISN'T VALID :(");
@@ -146,7 +146,7 @@ DNASequence DNASequence::slice(size_t startIndex, size_t endIndex)const
 
     for (size_t i = startIndex, j = 0; i < endIndex; i++, j++)
     {
-        subDna.m_dnaSequence[j] = m_dnaSequence[i];
+        subDna.m_nucleotideSequence[j] = m_nucleotideSequence[i];
     }
 
     return subDna;
@@ -159,22 +159,22 @@ DNASequence DNASequence::pairing()const
 
     for (size_t i = m_lengthDnaSequence - 1, j = 0; j < m_lengthDnaSequence; i--, j++)
     {
-        if (m_dnaSequence[i] == 'A')
+        if (m_nucleotideSequence[i] == 'A')
         {
             pairDnaSequence[j] = 'T';
         }
 
-        if (m_dnaSequence[i] == 'T')
+        if (m_nucleotideSequence[i] == 'T')
         {
             pairDnaSequence[j] = 'A';
         }
 
-        if (m_dnaSequence[i] == 'C')
+        if (m_nucleotideSequence[i] == 'C')
         {
             pairDnaSequence[j] = 'G';
         }
 
-        if (m_dnaSequence[i] == 'G')
+        if (m_nucleotideSequence[i] == 'G')
         {
             pairDnaSequence[j] = 'C';
         }
@@ -292,7 +292,7 @@ void DNASequence::writeDnaSequence(const IWriter& iWriter)
 
 const char* DNASequence::getDnaSequenceAsStr()const
 {
-    return (const char*)m_dnaSequence;
+    return (const char*)m_nucleotideSequence;
 }
 
 
@@ -318,6 +318,6 @@ std::ostream& operator<<(std::ostream& out, const DNASequence& dnaSequence)
 
 DNASequence::DNASequence(size_t lengthDnaSequence)
 {
-    m_dnaSequence = new Nucleotide[lengthDnaSequence + 1];
+    m_nucleotideSequence = new Nucleotide[lengthDnaSequence + 1];
     m_lengthDnaSequence = lengthDnaSequence;
 }

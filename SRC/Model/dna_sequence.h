@@ -57,7 +57,7 @@ private:
 
     static bool isValidDnaSequence(const char* dnaSequence, const char* validSequence = "ACTG");
 
-    Nucleotide* m_dnaSequence;
+    Nucleotide* m_nucleotideSequence;
     size_t m_lengthDnaSequence;
 };
 
