@@ -10,8 +10,8 @@
 class CommandFactory
 {
 public:
-    static const ICommand* getCommand(const ParserParams& params);
     static void release();
+    static const ICommand* getCommand(const ParserParams& params);
     static std::vector<std::string> getCommandNames();
 
     friend struct InitCommandsHash;

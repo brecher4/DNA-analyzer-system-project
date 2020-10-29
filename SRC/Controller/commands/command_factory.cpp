@@ -38,6 +38,24 @@ struct InitCommandsHash
 }initCommandsHash;
 
 
+void CommandFactory::release()
+{
+    delete m_commandsHash.at("new");
+    delete m_commandsHash.at("load");
+    delete m_commandsHash.at("dup");
+    delete m_commandsHash.at("rename");
+    delete m_commandsHash.at("save");
+    delete m_commandsHash.at("count");
+    delete m_commandsHash.at("len");
+    delete m_commandsHash.at("find");
+    delete m_commandsHash.at("findall");
+    delete m_commandsHash.at("help");
+    delete m_commandsHash.at("list");
+    delete m_commandsHash.at("show");
+    delete m_commandsHash.at("quit");
+}
+
+
 const ICommand* CommandFactory::getCommand(const ParserParams& params)
 {
     if(!params.getSize() && params[0].empty())
@@ -57,24 +75,6 @@ const ICommand* CommandFactory::getCommand(const ParserParams& params)
     {
         throw std::invalid_argument("COMMAND NOT FOUND");
     }
-}
-
-
-void CommandFactory::release()
-{
-    delete m_commandsHash.at("new");
-    delete m_commandsHash.at("load");
-    delete m_commandsHash.at("dup");
-    delete m_commandsHash.at("rename");
-    delete m_commandsHash.at("save");
-    delete m_commandsHash.at("count");
-    delete m_commandsHash.at("len");
-    delete m_commandsHash.at("find");
-    delete m_commandsHash.at("findall");
-    delete m_commandsHash.at("help");
-    delete m_commandsHash.at("list");
-    delete m_commandsHash.at("show");
-    delete m_commandsHash.at("quit");
 }
 
 
