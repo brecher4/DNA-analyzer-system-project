@@ -8,7 +8,7 @@
 class CreationCommands: public Command
 {
 public:
-    /* virtual */ void initParams(const ParserParams& params) = 0;
+    /* virtual */ ~CreationCommands() = 0;
 };
 
 

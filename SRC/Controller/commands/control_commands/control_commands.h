@@ -8,7 +8,7 @@
 class ControlCommands: public Command
 {
 public:
-    /* virtual */ void initParams(const ParserParams& params) = 0;
+    /* virtual */ ~ControlCommands() = 0;
 };
 
 

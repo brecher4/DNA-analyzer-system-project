@@ -8,7 +8,7 @@
 class AnalysisCommands: public Command
 {
 public:
-    /* virtual */ void initParams(const ParserParams& params) = 0;
+    /* virtual */ ~AnalysisCommands() = 0;
 };
 
 
