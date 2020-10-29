@@ -7,6 +7,9 @@
 
 class Command: public ICommand
 {
+public:
+    /* virtual */ ~Command() = 0;
+
 protected:
     const ParserParams* m_pParams;
 };
