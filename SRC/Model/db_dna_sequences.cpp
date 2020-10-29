@@ -1,7 +1,6 @@
 #include <stdexcept>
 #include <algorithm>
 #include "db_dna_sequences.h"
-#include "dna_meta_data.h"
 
 
 DBDNASequence::DBDNASequence()
