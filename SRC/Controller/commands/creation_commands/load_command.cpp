@@ -1,11 +1,10 @@
+#include <stdexcept>
 #include "load_command.h"
-#include "../../../View/writer/screen_writer.h"
 #include "../../parser_params.h"
 #include "../../../Model/dna_meta_data.h"
 #include "../../../Model/db_dna_sequences.h"
 #include "../../../View/reader/file_reader.h"
 #include "../../utils.h"
-#include <stdexcept>
 
 
 void LoadCommand::initParams(const ParserParams& params)

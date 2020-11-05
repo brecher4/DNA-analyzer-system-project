@@ -3,7 +3,6 @@
 #include "../../../Model/db_dna_sequences.h"
 #include "../../../Model/dna_meta_data.h"
 #include "../../parser_params.h"
-#include "../../../View/writer/screen_writer.h"
 #include "../../utils.h"
 
 
